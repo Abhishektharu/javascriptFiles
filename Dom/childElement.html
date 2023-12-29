@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: column;
+        }
+
+        button {
+            width: 100px;
+        }
+
+        div.parent {
+            border: 1px solid black;
+            padding: 5px;
+            width: 100px;
+            height: 100px;
+        }
+
+        div.childClass {
+            border: 1px solid red;
+            margin: 10px;
+            padding: 5px;
+            width: 80px;
+            height: 60px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="parent">parent</div>
+        <button id="add-child" type="button">Add a child</button>
+        <button id="remove-child" type="button">Remove child</button>
+    </div>
+
+    <script>
+        const parent = document.querySelector('.parent');
+        const addChild = document.querySelector('#add-child');
+
+        addChild.addEventListener('click', ()=>{
+            if(parent.childNodes.length > 1){
+                return ;
+            }
+
+            const child = document.createElement('div');
+            //give class name to child class
+            child.classList.add('childClass');
+            child.textContent = 'child class here';
+            parent.appendChild(child);
+
+
+        })
+
+        const removeChild = document.body.querySelector('#remove-child');
+        removeChild.addEventListener('click', ()=>{
+            const child = document.body.querySelector('.childClass');
+            parent.removeChild(child);
+        })
+    </script>
+
+</body>
+
+</html>

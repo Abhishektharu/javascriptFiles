@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alert on Empty Input Field</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the reference to the form
+      var myForm = document.getElementById("myForm");
+
+      // Attach an event listener to the form
+      myForm.addEventListener("submit", function(event) {
+        // Get the value of the specific input field
+        var myInputValue = document.getElementById("myInput").value.trim();
+
+        // Check if the specific input field is empty
+        if (myInputValue === "") {
+          // If empty, show an alert
+          alert("Input field is empty. Please fill it in.");
+          
+          // Prevent the form from submitting
+          event.preventDefault();
+        }
+        // If not empty, the form will submit as usual
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <form id="myForm">
+    <label for="myInput">Input Field:</label>
+    <input type="text" id="myInput" name="myInput">
+
+    <label for="otherField">Other Field:</label>
+    <input type="text" id="otherField" name="otherField">
+
+    <!-- Add other form fields as needed -->
+
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>

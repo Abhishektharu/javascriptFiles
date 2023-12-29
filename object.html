@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>this is object example</p>
+    <p id="demo"></p>
+
+    <script>
+        const person={
+            'age': 22,
+            'name': 'example name',
+
+        }
+
+        //display the object name age;
+        // document.getElementById("demo").innerHTML = "The name is " + person.name + " and age is " + person.age;
+        document.getElementById("demo").innerHTML = "The name is " + person["name"]
+    </script>
+</body>
+</html>

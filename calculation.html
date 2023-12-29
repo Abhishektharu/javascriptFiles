@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+    <p>This the example of Call a function which performs a calculation and returns the result:
+    </p>
+
+    <form>
+        <input type= "button" onclick="calculation(5 , 8)" value="Click me to sum">
+    </form>
+</body>
+
+<script>
+    function calculation(a, b){
+        var c = a + b;
+        document.getElementById("demo").innerHTML = "The sum of " + a + " and " + b + " is " + c;
+    }
+</script>
+</html>

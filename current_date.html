@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const d = new Date();
+        // let curr = d.getDate();
+        // let curr = d.getMinutes()
+        // let curr = d.getFullYear();
+        // let curr = d.getTime();
+        let curr = d.toUTCString();
+        console.log(curr);
+        console.log(typeof(curr));
+    </script>
+    <button onclick="document.getElementById('demo').innerHTML = Date() ">current time</button>
+
+    <p id="demo"></p>
+</body>
+</html>

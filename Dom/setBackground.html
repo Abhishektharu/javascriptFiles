@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="set-background" onclick="setBackground()" />
+    <p>paragraph </p>
+    <p>second</p>
+
+    <script>
+        function setBackground() {
+            const paragraph = document.getElementsByTagName('p');
+
+            // firstParagraph = paragraph[0]; //get first element of paragraph
+            // firstParagraph.style.background = 'red';
+
+            secondParagraph = paragraph[1]; //get first element of paragraph
+            secondParagraph.style.background = 'red';
+
+        }
+        myTextNode = document.createTextNode("world");
+
+        secondParagraph.appendChild(myTextNode);
+
+    </script>
+</body>
+
+</html>
+<!-- 
+getElementsByTagName(tagNameValue) is a method available in any DOM Element or the root Document element. When called,
+it returns an array with all of the element's descendants matching the tag name. The first element of the list is
+located at position [0] in the array. -->

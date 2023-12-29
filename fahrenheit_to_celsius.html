@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fahrenheit to celsius</title>
+</head>
+<body>
+    <p>Invoke (call) a function that converts from Fahrenheit to Celsius:    </p>
+
+    <p id="celsius"></p>
+        <input type="button" onclick="toCelsius(132)" value="click to convert">
+    <button onclick="toCelsius(50)">clickhere</button>
+</body>
+
+<script>
+    function toCelsius(F){
+        // (32°F − 32) × 5/9 = 0°C
+        var total = (F - 32) * 5 /9;
+        document.getElementById("celsius").innerHTML = "The converted value of fahrenheit: " + F + " is " + total; 
+    }
+</script>
+</html>
