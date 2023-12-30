@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .list-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .list-items {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .list-container:hover .list-items {
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        li:hover,
+        li.selected {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="list-container">
+        <span>Hover over me</span>
+        <div class="list-items">
+            <ul id="itemList">
+                <li onclick="selectItem(0)">Item 1</li>
+                <li onclick="selectItem(1)">Item 2</li>
+                <li onclick="selectItem(2)">Item 3</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript function to handle item selection
+        function selectItem(index) {
+            // Remove the 'selected' class from all items
+            var items = document.querySelectorAll('#itemList li');
+            items.forEach(function(item) {
+                item.classList.remove('selected');
+            });
+
+            // Add the 'selected' class to the clicked item
+            items[index].classList.add('selected');
+        }
+    </script>
+
+</body>
+</html>
