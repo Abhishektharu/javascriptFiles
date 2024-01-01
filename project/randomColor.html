@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Changing color Tutorial</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+
+    <script>
+        const randomColor = function () {
+            let hexCode = '#';
+            // #123456789ABCDEF
+
+            for (i = 0; i < 6; i++) {
+                hexCode += Math.floor(Math.random() * 10);
+            }
+
+            return hexCode;
+
+        }
+
+        const startBtn = document.querySelector('#start')
+        const stopBtn = document.querySelector('#stop')
+        let intervalId;
+
+        const startChangingColor = function () {
+            intervalId = setInterval(changeBgColor, 1000);
+
+            function changeBgColor() {
+
+                document.body.style.backgroundColor = randomColor();
+            }
+            // document.body.style.color = randomColor();
+        }
+
+        const stopChangingColor = function () {
+            clearInterval(intervalId);
+        }
+
+        startBtn.addEventListener('click', startChangingColor)
+        stopBtn.addEventListener('click', stopChangingColor);
+
+    </script>
+</body>
+
+</html>

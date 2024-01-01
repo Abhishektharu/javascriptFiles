@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Header </h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+
+    <script>
+        let intervalId;
+
+        const sayDate = function () {
+            console.log(Math.random());
+
+        }
+
+        // const setIntervalfn = setInterval(sayDate, 1000);
+        const startBtn = document.querySelector('#start')
+        const stopBtn = document.querySelector('#stop')
+
+        startBtn.addEventListener('click', function () {
+            intervalId = setInterval(sayDate, 100);
+        })
+
+        stopBtn.addEventListener('click', function (){
+            clearInterval(intervalId);
+        })
+    </script>
+</body>
+
+</html>
