@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        table tr td {
+            border: 2px solid black;
+        }
+
+        td {
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Changing color by clicking start button</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <div class="container">
+        <!-- <table>
+            <tr>
+                <td id="cell1"></td>
+                <td id="cell2"></td>
+                <td id="cell3"></td>
+                <td id="cell4"></td>
+            </tr>
+
+            <tr>
+                <td id="cell5"></td>
+                <td id="cell6"></td>
+                <td id="cell7"></td>
+                <td id="cell8"></td>
+            </tr>
+
+
+            <tr>
+                <td id="cell9"></td>
+                <td id="cell10"></td>
+                <td id="cell11"></td>
+                <td id="cell12"></td>
+            </tr>
+
+            <tr>
+                <td id="cell13"></td>
+                <td id="cell14"></td>
+                <td id="cell15"></td>
+                <td id="cell16"></td>
+            </tr>
+        </table> -->
+
+        <table>
+            <!-- Use nested loops to generate the table cells -->
+            <script>
+                for(let i=1; i<=4; i++){
+                    document.write('<tr>')
+                    for(let j= 1; j<=4; j++){
+                        document.write('<td id="cell' + ((i - 1) * 4 + j) + '"></td>');
+                    }
+                }
+            </script>
+        </table>
+    </div>
+
+
+    <script>
+        const randomColor = function () {
+            let hexCode = '#';
+            // #123456789ABCDEF
+
+            for (i = 0; i < 6; i++) {
+                hexCode += Math.floor(Math.random() * 10);
+            }
+
+            return hexCode;
+
+        }
+
+        const row = document.getElementById('#row1')
+        let setCount ;
+        const startBtn = document.querySelector('#start').addEventListener('click', () => {
+             setCount = setInterval(function () {
+                // Change the background color of each cell randomly
+                for (let i = 1; i <= 16; i++) {
+                    let cellId = 'cell' + i;
+                    let cell = document.getElementById(cellId);
+                    cell.style.backgroundColor = randomColor();
+                }
+            }, 100);
+        })
+
+        const stopBtn = document.querySelector('#stop').addEventListener('click', ()=>{
+            clearInterval(setCount);
+            setCount = null;
+        })
+    </script>
+</body>
+
+</html>

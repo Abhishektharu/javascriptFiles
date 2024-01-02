@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .even{
+            border: 2px solid red;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Changing color Tutorial</h1>
+    <h1>Changing color by clicking start button</h1>
     <button id="start">Start</button>
     <button id="stop">Stop</button>
+
+    <div class="container">
+        
+    </div>
 
 
     <script>
@@ -36,12 +45,14 @@
             function changeBgColor() {
 
                 document.body.style.backgroundColor = randomColor();
+                document.body.style.color = randomColor();
             }
             // document.body.style.color = randomColor();
         }
 
         const stopChangingColor = function () {
             clearInterval(intervalId);
+            intervalId = null;
         }
 
         startBtn.addEventListener('click', startChangingColor)

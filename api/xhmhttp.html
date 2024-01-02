@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .imageContainer {
+        display: flex;
+        justify-content: center;
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="imageContainer">
+      <img id="profileImage" alt="profile picture" />
+      <div class="profileInfo">
+        <div id="id"></div>
+        <div id="name"></div>
+        <div id="url"></div>
+      </div>
+    </div>
+
+    <script>
+      const url = "https://api.github.com/users/Abhishektharu";
+      let request = new XMLHttpRequest();
+
+      request.open("GET", url);
+
+      request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+          const data = JSON.parse(this.responseText);
+          const imageURL = data.avatar_url;
+
+          appendProfilePicture(imageURL);
+
+          const id = data.id;
+
+          appendId(id);
+
+          const name = data.login;
+          appendName(name);
+
+          const url = data.url;
+          appendUrl(url);
+
+          
+        }
+      };
+
+      function appendProfilePicture(profileImg) {
+        const getProfileId = document.getElementById("profileImage");
+        getProfileId.src = profileImg;
+      }
+
+
+      function appendId(id){
+        const userId = document.getElementById('id');
+        userId.innerHTML = `id: ${id}`;
+      }
+
+
+      function appendName(name){
+        const userId = document.getElementById('name');
+        userId.innerHTML = `name: ${name}`;
+      }
+
+      function appendUrl(url){
+        const userId = document.getElementById('url');
+        userId.innerHTML = `id: ${url}`;
+      }
+
+
+
+
+      request.send();
+    </script>
+  </body>
+</html>
