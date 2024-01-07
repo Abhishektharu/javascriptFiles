@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <button id="yellow">Yellow</button>
+        <button id="blue">Blue</button>
+    </div>
+    <script>
+        const blue = document.getElementById('blue');
+        
+        
+        //closure realworld example
+        function colorHandler(color){
+            // document.body.style.backgroundColor = `yellow`
+            //whenever colorHandler is called it doesn't only return below function but return whole lexical scope i.e whole colorHandler func
+            
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+                
+            }
+            
+        }
+         document.getElementById('yellow').onclick = colorHandler('yellow');
+         document.getElementById('blue').onclick = colorHandler('blue');
+
+        // yellow.onclick = ()=>{
+        //     colorHandler('blue');
+        // }
+    </script>
+</body>
+</html>
