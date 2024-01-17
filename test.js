@@ -1,34 +1,14 @@
-function memoize(fn) {
-    const cache = new Map(); // A map to store cached results
+const functionPairsMap = new Map();
 
-    return function (...args) {
-        const key = JSON.stringify(args); // Generate a unique key based on the arguments
+functionPairsMap.set('key1', function (a, b) {
+    return a + b;
+});
 
-        if (cache.has(key)) {
-            // If the result is already cached, return it
-            console.log("Result retrieved from cache");
-            return cache.get(key);
-        } else {
-            // Otherwise, calculate the result, cache it, and return it
-            const result = fn(...args);
-            cache.set(key, result);
-            console.log("Result calculated and cached");
-            return result;
-        }
-    };
-}
+functionPairsMap.set('key2', function (x, y) {
+    return x * y;
+});
 
-// Example usage
-function expensiveOperation(x, y) {
-    console.log("Performing expensive operation...");
-    return x + y;
-}
-
-const memoizedExpensiveOperation = memoize(expensiveOperation);
-
-console.log(memoizedExpensiveOperation(2, 3)); // Output: Performing expensive operation... \n Result calculated and cached \n 5
-console.log(memoizedExpensiveOperation(2, 3)); // Output: Result retrieved from cache \n 5
-console.log(memoizedExpensiveOperation(2, 3)); // Output: Result retrieved from cache \n 5
-console.log(memoizedExpensiveOperation(2, 3)); // Output: Result retrieved from cache \n 5
-console.log(memoizedExpensiveOperation(1, 3)); // Output: Result retrieved from cache \n 5
-
+// Accessing and calling functions
+const result1 = functionPairsMap.get('key1')(2, 3); // result1 = 5
+const result2 = functionPairsMap.get('key2')(4, 5); // result2 = 20
+console.log(result1);
